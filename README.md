@@ -4,7 +4,7 @@
 
 ## Visão Geral
 
-O Projeto Exfiltrator é uma simulação de uma ferramenta de coleta de dados para demonstrar técnicas comuns de exfiltração e persistência usadas por ameaças reais. Este projeto é parte do treinamento "Operação Rastreamento Sombra" do Trend Vision One.
+O Projeto Exfiltrator é uma simulação de uma ferramenta de coleta de dados para demonstrar técnicas comuns de exfiltração e persistência usadas por ameaças reais. Este projeto é parte do módulo "Soluções EDR - Apex One", para o treinamento de Trend Vision One.
 
 ## Recursos Simulados
 
